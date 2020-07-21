@@ -130,6 +130,7 @@ html {
 .todos {
   display: flex;
   flex-direction: column;
+  min-height: 100px;
 }
 
 .todo {
