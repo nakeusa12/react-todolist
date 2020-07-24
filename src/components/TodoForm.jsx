@@ -2,16 +2,21 @@ import React, { useState } from "react";
 import propTypes from "prop-types";
 
 const TodoForm = ({ addTodo, showAdd }) => {
+  // React Hooks value input
   const [value, setValue] = useState("");
 
+  // Fungsi untuk menghandle btn dengan membawa value
   const handleFormSubmit = e => {
+    // agar page tidak refresh
     e.preventDefault();
 
+    // kondisi apabila input tidak ada isi
     if (!value) {
       alert("No Blank Todo!");
       return;
     }
 
+    // kondisi apabila value melebihi 40kata
     if (value.length > 40) {
       alert("please create a shorter todo text!");
       setValue("");
@@ -22,6 +27,7 @@ const TodoForm = ({ addTodo, showAdd }) => {
     setValue("");
   };
 
+  // Kondisi jika showadd adalah true maka muncul inputnya
   if (showAdd) {
     return (
       <section className="add">
