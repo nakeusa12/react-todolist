@@ -1,19 +1,23 @@
 import { css } from "@emotion/core";
 
-export const button = ({ color, align }) => {
+export const button = ({ color, align, theme }) => {
   let textColor;
+
+  const {
+    color: { primary }
+  } = theme;
 
   switch (color) {
     case "black":
-      textColor = "#484848";
+      textColor = primary.black;
       break;
 
     case "red":
-      textColor = "#e06262";
+      textColor = primary.red;
       break;
 
     default:
-      textColor = "#484848";
+      textColor = primary.black;
       break;
   }
 
@@ -21,8 +25,8 @@ export const button = ({ color, align }) => {
     width: 24%;
     font-size: 1.8rem;
     font-family: "Ranchers", cursive;
-    color: ${textColor}
-    text-align: ${align}; 
+    color: ${textColor};
+    text-align: ${align};
     letter-spacing: 0.5rem;
     padding: 16px;
     background: unset;

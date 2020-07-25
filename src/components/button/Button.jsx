@@ -1,7 +1,8 @@
 /** @jsx jsx **/
-// import React from "react";
 import { jsx } from "@emotion/core";
+// import React from "react";
 import propTypes from "prop-types";
+import { useTheme } from "emotion-theming";
 
 // cara 2
 // import cx from "classnames";
@@ -29,12 +30,12 @@ const Button = ({ text, onClick, color, align }) => {
   // });
 
   // Cara 3
-
+  const theme = useTheme();
   return (
     // <button className={classNames} onClick={onClick}>
     //   {text}
     // </button>
-    <button css={styles.button({ align, color })} onClick={onClick}>
+    <button css={styles.button({ align, color, theme })} onClick={onClick}>
       {text}
     </button>
   );
