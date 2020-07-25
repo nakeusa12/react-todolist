@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+/** @jsx jsx **/
+import { jsx } from "@emotion/core";
+
+import { useState } from "react";
 import propTypes from "prop-types";
-import styles from "./todoform.module.css";
+// import styles from "./todoform.module.css";
+
+import * as styles from "./todoform.styles";
+import { useTheme } from "emotion-theming";
 
 const TodoForm = ({ addTodo, showAdd }) => {
   // React Hooks value input
@@ -28,18 +34,20 @@ const TodoForm = ({ addTodo, showAdd }) => {
     setValue("");
   };
 
+  const theme = useTheme();
+
   // Kondisi jika showadd adalah true maka muncul inputnya
   if (showAdd) {
     return (
-      <section className={styles.add}>
-        <form className={styles.addForm} onSubmit={handleFormSubmit}>
+      <section css={styles.add}>
+        <form css={styles.addForm} onSubmit={handleFormSubmit}>
           <input
             type="text"
-            className={styles.addInput}
+            css={styles.addInput({ theme })}
             value={value}
             onChange={e => setValue(e.target.value)}
           />
-          <button className={styles.addBtn}>Add</button>
+          <button css={styles.addBtn({ theme })}>Add</button>
         </form>
       </section>
     );

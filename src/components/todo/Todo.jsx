@@ -12,12 +12,7 @@ const Todo = ({ text, completeTodo, index, isCompleted }) => {
 
   return (
     <div css={styles.todo({ theme })} onClick={() => completeTodo(index)}>
-      <div
-        css={styles.todoText}
-        style={{ textDecoration: isCompleted ? "line-through" : "initial" }}
-      >
-        {text}
-      </div>
+      <div css={styles.todoText({ theme, isCompleted })}>{text}</div>
     </div>
   );
 };

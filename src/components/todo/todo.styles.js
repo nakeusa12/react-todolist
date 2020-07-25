@@ -15,7 +15,7 @@ export const todo = ({ theme }) => {
   `;
 };
 
-export const todoText = () => {
+export const todoText = ({ theme, isCompleted }) => {
   return css`
     width: 100%;
     height: 50px;
@@ -24,5 +24,7 @@ export const todoText = () => {
     transform: translate(-50%);
     font-family: "Ranchers", cursive;
     font-weight: normal;
+    text-decoration: ${isCompleted ? "line-through" : "initial"};
+    color: ${theme.color.primary.black};
   `;
 };
