@@ -1,12 +1,15 @@
-import React from "react";
+/** @jsx jsx **/
+// import React from "react";
+import { jsx } from "@emotion/core";
 import propTypes from "prop-types";
 import Todo from "../todo/Todo";
-import styles from "./todos.module.css";
+// import styles from "./todos.module.css";
+import * as styles from "./todos.styles";
 
 const Todos = ({ todos, completeTodo }) => {
   return (
     // kondisi apabila tidak ada isi todo akan muncul placeholder
-    <section className={styles.todos}>
+    <section css={styles.todos}>
       {todos.length > 0 &&
         todos.map((todo, index) => {
           return (
@@ -20,10 +23,10 @@ const Todos = ({ todos, completeTodo }) => {
           );
         })}
       {todos.length === 0 && (
-        <div className={styles.todoPlaceholder}>
+        <div css={styles.todoPlaceholder}>
           Add todo by clicking{" "}
-          <span className={styles.addButtonPlaceholder}>Add</span> button on the
-          top left corner
+          <span css={styles.addButtonPlaceholder}>Add</span> button <br /> on
+          the top left corner
         </div>
       )}
     </section>
