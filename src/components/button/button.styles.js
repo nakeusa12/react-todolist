@@ -22,7 +22,6 @@ export const button = ({ color, align, theme }) => {
   }
 
   return css`
-    width: 24%;
     font-size: 1.8rem;
     font-family: "Ranchers", cursive;
     color: ${textColor};
