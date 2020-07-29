@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import useStateWithLocalStorage from "../hooks/useStateWithLocalStorage";
 import Paper from "../components/paper/Paper";
 import Header from "../components/header/Header";
 import TodoForm from "../components/todoform/TodoForm";
@@ -9,24 +9,35 @@ import Container from "../layout/Container";
 
 const TodoList = () => {
   // React Hooks untuk isi Todo
-  const [todos, setTodos] = useState([
-    { text: "Learning React", isCompleted: false },
-    { text: "Learning React Hooks", isCompleted: false },
-    { text: "Learning styling in React", isCompleted: false }
-  ]);
+  // const [todos, setTodos] = useState([
+  //   { text: "Learning React", isCompleted: false },
+  //   { text: "Learning React Hooks", isCompleted: false },
+  //   { text: "Learning styling in React", isCompleted: false }
+  // ]);
+
+  // React hooks yang memiliki logika jika didalam localstorage ada key "todos" maka ambil datanya tapi jika tidak ada buat array kosong
+  // const [todos, setTodos] = useState(
+  //   JSON.parse(localStorage.getItem("todos")) || []
+  // );
+
+  const [todos, setTodos] = useStateWithLocalStorage("todos");
 
   // React Hooks untuk btn dari todoForm
   const [showAdd, setShowAdd] = useState(false);
 
+  // useEffect(() => {
+  //   localStorage.setItem("todos", JSON.stringify(todos));
+  // }, [todos]);
+
   // Fungsi untuk menambahkan todo
   const addTodo = value => {
     // Kondisi limit todo
-    if (todos.length < 6) {
+    if (todos.length < 7) {
       const addedTodo = [...todos, { text: value, isCompleted: false }];
 
       setTodos(addedTodo);
     } else {
-      alert("Only 10 todos is allowed!");
+      alert("Only 7 todos is allowed!");
     }
   };
 

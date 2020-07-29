@@ -26,5 +26,6 @@ export const todoText = ({ theme, isCompleted }) => {
     font-weight: normal;
     text-decoration: ${isCompleted ? "line-through" : "initial"};
     color: ${theme.color.primary.black};
+    cursor: pointer;
   `;
 };
