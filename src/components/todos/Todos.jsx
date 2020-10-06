@@ -7,7 +7,6 @@ import Todo from "../todo/Todo";
 import * as styles from "./todos.styles";
 
 import Container from "../../layout/Container";
-import Item from "../../layout/Item";
 
 const Todos = ({ todos, completeTodo }) => {
   return (
